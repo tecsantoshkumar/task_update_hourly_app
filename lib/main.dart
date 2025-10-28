@@ -5,9 +5,10 @@ import 'package:timezone/timezone.dart' as tz;
 
 import 'home.dart';
 import 'local_notifications.dart';
-import 'another_page.dart';
+import 'task_update.dart';
 import 'login.dart';
 import 'signup.dart';
+import 'task_list.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -46,10 +47,11 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => LoginPage(), // Shows login first
-        '/another': (context) => const AnotherPage(),
+        '/taskupdate': (context) => const TaskUpdate(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),
         '/home': (context) => const Homepage(), // Add this route for homepage
+        '/tasks': (context) => const TaskListPage(),
       },
     );
   }

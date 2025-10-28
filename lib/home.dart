@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'local_notifications.dart';
 
 class Homepage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _HomepageState extends State<Homepage> {
     super.initState();
   }
 
-//  to listen to any notification clicked or not
+  // Listen to notification clicks
   listenToNotifications() {
     print("Listening to notification");
     LocalNotifications.onClickNotification.stream.listen((event) {
@@ -31,55 +30,32 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(title: Text("Flutter Local Notifications")),
       body: Container(
         height: double.infinity,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton.icon(
-                icon: Icon(Icons.notifications_outlined),
-                onPressed: () {
-                  LocalNotifications.showSimpleNotification(
-                      title: "Simple Notification",
-                      body: "This is a simple notification",
-                      payload: "This is simple data");
-                },
-                label: Text("Simple Notification"),
-              )
-              // ElevatedButton.icon(
-              //   icon: Icon(Icons.timer_outlined),
-              //   onPressed: () {
-              //     LocalNotifications.showPeriodicNotifications(
-              //         title: "Periodic Notification",
-              //         body: "This is a Periodic Notification",
-              //         payload: "This is periodic data");
-              //   },
-              //   label: Text("Periodic Notifications"),
-              // ),
-              // ElevatedButton.icon(
-              //   icon: Icon(Icons.timer_outlined),
-              //   onPressed: () {
-              //     LocalNotifications.showScheduleNotification(
-              //         title: "Schedule Notification",
-              //         body: "This is a Schedule Notification",
-              //         payload: "This is schedule data");
-              //   },
-              //   label: Text("Schedule Notifications"),
-              // ),
-              // // to close periodic notifications
-              // ElevatedButton.icon(
-              //     icon: Icon(Icons.delete_outline),
-              //     onPressed: () {
-              //       LocalNotifications.cancel(1);
-              //     },
-              //     label: Text("Close Periodic Notifcations")),
-              // ElevatedButton.icon(
-              //     icon: Icon(Icons.delete_forever_outlined),
-              //     onPressed: () {
-              //       LocalNotifications.cancelAll();
-              //     },
-              //     label: Text("Cancel All Notifcations"))
-            ],
-          ),
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton.icon(
+              icon: Icon(Icons.notifications_outlined),
+              onPressed: () {
+                LocalNotifications.showSimpleNotification(
+                  title: "Simple Notification",
+                  body: "This is a simple notification",
+                  payload: "This is simple data",
+                );
+              },
+              label: Text("Simple Notification"),
+            ),
+            SizedBox(height: 40),
+            Container(
+              height: MediaQuery.of(context).size.height / 3,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/welcome.png"),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

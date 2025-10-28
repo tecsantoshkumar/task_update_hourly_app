@@ -34,7 +34,9 @@ dependencies:
   timezone: ^0.10.1
   rxdart: ^0.28.0
   android_intent_plus: ^4.0.0
-  http: ^1.2.1   # ✅ Add this line (latest stable version)
+  http: ^1.2.1 
+  pdf: ^3.11.0
+  printing: ^5.13.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

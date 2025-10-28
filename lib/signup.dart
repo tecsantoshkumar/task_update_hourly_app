@@ -6,21 +6,6 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        // brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios,
-            size: 20,
-            color: Colors.black,),
-
-
-        ),
-      ),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 40),
@@ -98,11 +83,19 @@ class SignupPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("Already have an account?"),
-                  Text(" Login", style:TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Text(
+                      " Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Color(0xff0095FF), // Makes it look clickable
+                      ),
+                    ),
                   ),
-                  )
                 ],
               )
 
